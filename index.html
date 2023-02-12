@@ -12,9 +12,9 @@
     // Initialize the client library and make an API request
     function initClient() {
       gapi.client.init({
-        apiKey: 'AIzaSyAHHqBeFDqqA1zwveFppuSODePon49bt0g',
+        apiKey: 'YOUR_API_KEY',
         discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/fitness/v1/rest"],
-        clientId: '139553803279-labqa27kbbmbia87577mkr2g1l3lu8eu.apps.googleusercontent.com',
+        clientId: 'YOUR_CLIENT_ID',
         scope: 'https://www.googleapis.com/auth/fitness.body.read'
       }).then(function() {
         return gapi.client.request({
@@ -22,7 +22,9 @@
         });
       }).then(function(response) {
         console.log(response.result);
-        // Here you can handle the response as you like, such as displaying the weight data on the screen.
+        var weightData = response.result.point[0].value[0].fpVal;
+        var weightDiv = document.getElementById('weight-data');
+        weightDiv.innerText = weightData.toFixed(2) + ' kg';
       }, function(reason) {
         console.error('Error: ' + reason.result.error.message);
       });
@@ -30,5 +32,6 @@
   </script>
 </head>
 <body onload="handleClientLoad()">
+  <div id="weight-data">Loading...</div>
 </body>
 </html>
