@@ -12,9 +12,9 @@
     // Initialize the client library and make an API request
     function initClient() {
       gapi.client.init({
-        apiKey: AIzaSyAHHqBeFDqqA1zwveFppuSODePon49bt0g,
+        apiKey: 'AIzaSyAHHqBeFDqqA1zwveFppuSODePon49bt0g',
         discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/fitness/v1/rest"],
-        clientId: 139553803279-labqa27kbbmbia87577mkr2g1l3lu8eu.apps.googleusercontent.com,
+        clientId: '139553803279-labqa27kbbmbia87577mkr2g1l3lu8eu.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/fitness.body.read'
       }).then(function() {
         return gapi.client.request({
